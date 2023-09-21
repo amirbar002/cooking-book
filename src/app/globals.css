@@ -1,0 +1,76 @@
+.textareaIn {
+  width: 200px;
+  height: 80px;
+}
+
+.big-div-addRecipes {
+  display: grid;
+  justify-content: space-around;
+}
+
+.events_page {
+  display: grid;
+  grid-template-areas: "strawderry salad salad";
+  margin-bottom: 4%;
+  justify-items: center;
+}
+
+.cardmeat {
+  margin-top: 5%;
+}
+
+.mr-sm-2 {
+  background-color: white;
+}
+
+.first-letter-bold {
+  font-weight: bold;
+}
+
+.big-div-home {
+  display: grid;
+  justify-content: center;
+  font-size: large;
+}
+
+.footer-css {
+  margin-top: 4%;
+  display: grid;
+  justify-content: center;
+}
+
+.me-auto {
+  margin-left: 30%;
+}
+
+.bclass {
+  text-align: right;
+  display: block;
+}
+
+.dig-navbar-jsx {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+body {
+  padding-top: 50px;
+}
+@media screen and (max-width: 600px) {
+  .Containernavbar {
+    flex-direction: column-reverse;
+  }
+  .me-auto {
+    margin-left: 18%;
+  }
+  body {
+    padding-top: 130px;
+  }
+  .events_page {
+    display: grid;
+    margin-bottom: 4%;
+    justify-content: center;
+  }
+  
+}
