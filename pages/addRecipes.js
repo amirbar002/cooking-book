@@ -1,15 +1,14 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.css";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import "../src/app/globals.css";
 import Image from "next/legacy/image";
+import { useRouter } from "next/router";
 
 function addRecipes() {
-  const [alldata, setalldata] = useState("");
-  const [hasPhoto, sethasPhoto] = useState(false);
-  const [tast, settast] = useState(true);
+  const router = useRouter();
   const [img, setimg] = useState("");
   const { register, handleSubmit } = useForm();
 
@@ -41,8 +40,11 @@ function addRecipes() {
         formData,
         config
       );
+      console.log("reload");
 
-      console.log(response.data);
+      alert("המתכון נשמר בהצלחה");
+
+      router.reload();
     } catch (error) {
       console.error(error);
     }
@@ -78,12 +80,9 @@ function addRecipes() {
           };
           reader.readAsArrayBuffer(blobFile);
 
-          // Upload the file
           const formData = new FormData();
           // formData.append("img", blobFile);
           setimg(blobFile);
-
-          // Rest of your code...
         }
       } else {
         alert("נבחרה יותר מתמונה אחת");

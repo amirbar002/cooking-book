@@ -32,7 +32,7 @@ export const Navbarweb = ({ data }) => {
 
     if (response.data.length > 0) {
       dispatch(saveData(response.data));
-      router.push("https://cooking-book-77339b050a7a.herokuapp.com/recipes/search");
+      router.push("http://localhost:3000/events/search");
     } else {
       alert("No results found.");
     }

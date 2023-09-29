@@ -29,7 +29,7 @@ const EventsMliky = ({ data }) => {
 export default EventsMliky;
 
 export async function getStaticProps() {
-  const res = await axios.get("http://localhost:8080/recipes/2")
+  const res = await axios.get("https://cooking-book-77339b050a7a.herokuapp.com/recipes/2")
   return {
     props: {
       data: res.data,
