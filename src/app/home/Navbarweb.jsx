@@ -27,12 +27,12 @@ export const Navbarweb = ({ data }) => {
     // event.preventDefault();
     setSearchTerm(data);
     const response = await axios.get(
-      `http://localhost:8080/recipes/search/${data.search}`
+      `https://cooking-book-77339b050a7a.herokuapp.com/recipes/search/${data.search}`
     );
 
     if (response.data.length > 0) {
       dispatch(saveData(response.data));
-      router.push("http://localhost:3000/events/search");
+      router.push("https://cooking-book-77339b050a7a.herokuapp.com/recipes/search");
     } else {
       alert("No results found.");
     }

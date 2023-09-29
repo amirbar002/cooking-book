@@ -19,11 +19,9 @@ function addRecipes() {
   const onSubmitt = async (data) => {
     const bytes = img.length;
     const megabytes = bytes / (1024 * 1024);
-  
 
     try {
-     
-      const formData = new FormData(); 
+      const formData = new FormData();
       formData.append("Instructions", data.Instructions);
       formData.append("Ingredients", data.Ingredients);
       formData.append("type_of_food", data.type_of_food);
@@ -32,20 +30,23 @@ function addRecipes() {
       formData.append("phone", data.phone);
       formData.append("foodName", data.foodName);
       formData.append("image", img);
-      
+
       const config = {
-        headers:{
-            "Content-Type":"multipart/form-data"
-        }
-     }
-      const response = await axios.post("http://localhost:8080/recipes", formData , config);
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+      const response = await axios.post(
+        "https://cooking-book-77339b050a7a.herokuapp.com/recipes",
+        formData,
+        config
+      );
 
       console.log(response.data);
     } catch (error) {
       console.error(error);
     }
   };
-
 
   const DragDropFiles = () => {
     const [files, setFiles] = useState(null);
@@ -63,33 +64,30 @@ function addRecipes() {
     const handleUpload = async () => {
       if (files && files.length === 1) {
         const file = files[0];
-        const maxSize = 50 * 1024 * 1024; 
-        
+        const maxSize = 50 * 1024 * 1024;
+
         if (file.size <= maxSize) {
           const blobUrl = URL.createObjectURL(file);
           const blobFile = new File([file], file.name, { type: file.type });
           URL.revokeObjectURL(blobUrl);
-    
 
           const reader = new FileReader();
           reader.onload = () => {
             const buffer = Buffer.from(reader.result);
-           console.log(buffer);
+            console.log(buffer);
           };
           reader.readAsArrayBuffer(blobFile);
-    
+
           // Upload the file
           const formData = new FormData();
           // formData.append("img", blobFile);
-          setimg(blobFile)
-        
+          setimg(blobFile);
+
           // Rest of your code...
-        }  
-        
+        }
       } else {
         alert("נבחרה יותר מתמונה אחת");
-      } 
-
+      }
     };
 
     if (files)
@@ -109,22 +107,22 @@ function addRecipes() {
 
     return (
       <>
-       <div
-        style={{
-          zIndex: -1,
-          position: "fixed",
-          width: "100vw",
-          height: "100vh",
-          objectFit: "cover",
-        }}
-      >
-        <Image
-          src="/../public/img10.jpeg"
-          alt="background"
-          layout="fill"
-          quality={100}
-        />
-      </div>
+        <div
+          style={{
+            zIndex: -1,
+            position: "fixed",
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover",
+          }}
+        >
+          <Image
+            src="/../public/img10.jpeg"
+            alt="background"
+            layout="fill"
+            quality={100}
+          />
+        </div>
         <div
           className="dropzone"
           onDragOver={handleDragOver}
@@ -151,30 +149,37 @@ function addRecipes() {
         <DragDropFiles />
 
         <Form onSubmit={handleSubmit(onSubmitt)}>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>שם המנה</Form.Label>
             <Form.Control
               type="text"
               placeholder=""
-              {...register("foodName",{ required: true })}
+              {...register("foodName", { required: true })}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>רכיבים</Form.Label>
-            <Form.Control as="textarea" rows={3} {...register("Ingredients",{ required: true })} />
+            <Form.Control
+              as="textarea"
+              rows={3}
+              {...register("Ingredients", { required: true })}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>הוראות הכנה</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
-              {...register("Instructions",{ required: true })}
+              {...register("Instructions", { required: true })}
             />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>סוג אוכל</Form.Label>
-            <Form.Select defaultValue="1" {...register("type_of_food",{ required: true })}>
+            <Form.Select
+              defaultValue="1"
+              {...register("type_of_food", { required: true })}
+            >
               <option value="1">בשרי</option>
               <option value="2">חלבי</option>
               <option value="3">פרווה</option>
@@ -184,7 +189,10 @@ function addRecipes() {
           </Form.Group>
           <Form.Group>
             <Form.Label>לא חייב לבחור עם אין</Form.Label>
-            <Form.Select defaultValue="0" {...register("type_of_food_two",{ required: true })}>
+            <Form.Select
+              defaultValue="0"
+              {...register("type_of_food_two", { required: true })}
+            >
               <option value="0">בחר סוג מזון</option>
               <option selected value="1">
                 בשרי
@@ -200,7 +208,7 @@ function addRecipes() {
             <Form.Control
               type="text"
               placeholder="אמיר"
-              {...register("name",{ required: true })}
+              {...register("name", { required: true })}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -220,30 +228,3 @@ function addRecipes() {
 }
 
 export default addRecipes;
-
-// @PrimaryGeneratedColumn('increment')
-// id: number
-
-// @Column('blob')
-// data: Buffer;
-
-// @Column()
-// Ingredients: string
-
-// @Column()
-// Instructions: string
-
-// @Column()
-// name: string
-
-// @Column()
-// phone: number
-
-// @Column({nullable: true, default: true})
-// foodName: boolean
-
-// 1 בשרי
-// 2 חלבי
-// 3 פרווה
-// 4 טבעוני
-// 5 קינוח

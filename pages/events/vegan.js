@@ -29,7 +29,7 @@ const EventsPage = ({ data }) => {
 export default EventsPage;
 
 export async function getStaticProps() {
-  const res = await axios.get("http://localhost:8080/recipes/4")
+  const res = await axios.get("https://cooking-book-77339b050a7a.herokuapp.com/recipes/4")
   console.log(res.data, 'res.data');
   return {
     props: {
