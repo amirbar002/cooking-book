@@ -6,7 +6,7 @@ import axios from "axios";
 const EventsPage = ({ data }) => {
   return (
     <>
-      <div
+     <div
         style={{
           zIndex: -1,
           position: "fixed",

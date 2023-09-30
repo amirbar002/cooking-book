@@ -32,7 +32,7 @@ export const Navbarweb = ({ data }) => {
 
     if (response.data.length > 0) {
       dispatch(saveData(response.data));
-      router.push("http://localhost:3000/events/search");
+      router.push("https://master--velvety-belekoy-9b0e69.netlify.app/search");
     } else {
       alert("No results found.");
     }
@@ -66,9 +66,9 @@ export const Navbarweb = ({ data }) => {
               </Row>
             </Form>
             <Nav className="me-auto ">
-            <Nav.Link href="http://localhost:3000/abuot">הסבר</Nav.Link>
+            <Nav.Link href="https://master--velvety-belekoy-9b0e69.netlify.app/abuot">הסבר</Nav.Link>
               <Nav.Link href="/">עמוד הבית</Nav.Link>
-              <Nav.Link href="http://localhost:3000/addRecipes">
+              <Nav.Link href="https://master--velvety-belekoy-9b0e69.netlify.app/addRecipes">
                 הוסיף מתכון
               </Nav.Link>
             </Nav>

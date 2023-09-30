@@ -71,6 +71,7 @@ body {
     display: grid;
     margin-bottom: 4%;
     justify-content: center;
+    grid-template-areas: none;
   }
   
 }
