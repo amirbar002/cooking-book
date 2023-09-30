@@ -32,7 +32,7 @@ export const Navbarweb = ({ data }) => {
 
     if (response.data.length > 0) {
       dispatch(saveData(response.data));
-      router.push("https://master--velvety-belekoy-9b0e69.netlify.app/search");
+      router.push("https://master--velvety-belekoy-9b0e69.netlify.app/events/search");
     } else {
       alert("No results found.");
     }
