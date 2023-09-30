@@ -15,7 +15,7 @@ function index() {
         }}
       >
         <Image
-          src="/../../public/img.jpeg"
+          src="/../public/img.jpeg"
           alt="background"
           layout="fill"
           quality={100}
