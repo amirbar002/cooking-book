@@ -15,7 +15,7 @@ const EventsMliky = ({ data }) => {
         }}
       >
         <Image
-          src="/../public/img7.jpeg"
+          src="/../img7.jpeg"
           alt="background"
           layout="fill"
           quality={100}

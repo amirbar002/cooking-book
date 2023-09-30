@@ -116,7 +116,7 @@ function addRecipes() {
           }}
         >
           <Image
-            src="/../public/img10.jpeg"
+            src="/./img10.jpeg"
             alt="background"
             layout="fill"
             quality={100}

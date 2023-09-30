@@ -15,7 +15,7 @@ const EventsPage = ({ data }) => {
         }}
       >
         <Image
-          src="/../public/img9.jpeg"
+          src="/../img9.jpeg"
           alt="background"
           layout="fill"
           quality={100}

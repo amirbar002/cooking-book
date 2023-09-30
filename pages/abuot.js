@@ -14,7 +14,7 @@ function abuot() {
         }}
       >
         <Image
-          src="/../public/img3.jpeg"
+          src="/./img3.jpeg"
           alt="background"
           layout="fill"
           quality={100}

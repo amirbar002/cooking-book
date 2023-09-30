@@ -16,7 +16,7 @@ const search = () => {
         }}
       >
         <Image
-          src="/../public/img8.jpeg"
+          src="/../img8.jpeg"
           alt="background"
           layout="fill"
           quality={100}

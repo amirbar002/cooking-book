@@ -2,6 +2,7 @@ import { Home } from "@/app/home/home";
 import "bootstrap/dist/css/bootstrap.css";
 import Image from "next/legacy/image";
 
+
 function index() {
   return (
     <>
@@ -15,7 +16,7 @@ function index() {
         }}
       >
         <Image
-          src="/../public/img.jpeg"
+          src="/./img.jpeg"
           alt="background"
           layout="fill"
           quality={100}
