@@ -8,7 +8,7 @@ const EventsPage = ({ data }) => {
   const getcard = async () => {
     try {
       const res = await axios.get( "https://cooking-book-77339b050a7a.herokuapp.com/recipes/5")
-      if((JSON.stringify(res.data) !== JSON.stringify(data)) ){
+      if(res.data.length > data.length ){
         data = res.data
         console.log("res.data");
       }else{
@@ -19,11 +19,10 @@ const EventsPage = ({ data }) => {
     } catch (error) {
       console.log(error);
     }
-    getcard()
+    
   }
-  useEffect(() => {
-    getCard();
-  }, [])
+  getcard()
+
  
   return (
     <>
