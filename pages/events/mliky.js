@@ -3,6 +3,22 @@ import axios from "axios";
 import Image from "next/legacy/image";
 
 const EventsMliky = ({ data }) => {
+  const getcard = async () => {
+    try {
+      const res = await axios.get( "https://cooking-book-77339b050a7a.herokuapp.com/recipes/2")
+      if(res.data.length > data.length ){
+        data = res.data
+        console.log("res.data");
+      }else{
+        console.log('data from getStaticProps');
+      }
+     
+
+    } catch (error) {
+      console.log(error);
+    }
+    getcard()
+  }
   return( 
  <>
   <div

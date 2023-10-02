@@ -4,6 +4,22 @@ import Image from "next/legacy/image";
 import axios from "axios";
 
 const EventsPage = ({ data }) => {
+  const getcard = async () => {
+    try {
+      const res = await axios.get( "https://cooking-book-77339b050a7a.herokuapp.com/recipes/1")
+      if(res.data.length > data.length ){
+        data = res.data
+        console.log("res.data");
+      }else{
+        console.log('data from getStaticProps');
+      }
+     
+
+    } catch (error) {
+      console.log(error);
+    }
+    getcard()
+  }
   return (
     <>
      <div
@@ -31,7 +47,6 @@ export default EventsPage;
 
 export async function getStaticProps() {
   const res = await axios.get("https://cooking-book-77339b050a7a.herokuapp.com/recipes/1");
-  console.log(res.data, "res.data");
   return {
     props: {
       data: res.data,
